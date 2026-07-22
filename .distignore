@@ -1,0 +1,18 @@
+# Development files — excluded from plugin zip and Plugin Check scans.
+.git
+.gitignore
+.github
+.cursor
+.cursor/**
+.wordpress-org
+.wp-env.json
+node_modules
+package.json
+package-lock.json
+yarn.lock
+tsconfig.json
+src
+*.md
+!readme.txt
+*.map
+vidfeed.zip

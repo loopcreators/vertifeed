@@ -1,0 +1,33 @@
+{
+	"name": "vidfeed",
+	"version": "1.0.1",
+	"description": "WordPress Gutenberg plugin for vertical swipe video playback",
+	"author": "Loop Creators",
+	"license": "GPL-2.0-or-later",
+	"files": [
+		"build",
+		"includes",
+		"vidfeed.php",
+		"readme.txt",
+		"license.txt"
+	],
+	"scripts": {
+		"build": "wp-scripts build --experimental-modules",
+		"start": "wp-scripts start --experimental-modules",
+		"lint:types": "tsc --noEmit",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"env:start": "wp-env start",
+		"env:stop": "wp-env stop"
+	},
+	"devDependencies": {
+		"@wordpress/block-editor": "^15.22.0",
+		"@wordpress/blocks": "^15.22.0",
+		"@wordpress/components": "^36.0.0",
+		"@wordpress/data": "^10.49.0",
+		"@wordpress/env": "^10.22.0",
+		"@wordpress/icons": "^10.32.0",
+		"@wordpress/interactivity": "^6.49.0",
+		"@wordpress/scripts": "^30.13.0",
+		"typescript": "^6.0.3"
+	}
+}

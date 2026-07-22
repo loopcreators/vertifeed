@@ -1,0 +1,59 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "vidfeed/gallery",
+	"version": "1.0.1",
+	"title": "VidFeed Gallery",
+	"category": "media",
+	"icon": "images-alt2",
+	"description": "Display videos as a gallery grid; open a fullscreen vertical swipe player on click.",
+	"keywords": [ "video", "vidfeed", "gallery", "swipe", "vertical", "feed" ],
+	"textdomain": "vidfeed",
+	"attributes": {
+		"columns": {
+			"type": "number",
+			"default": 3
+		},
+		"gap": {
+			"type": "number",
+			"default": 8
+		},
+		"tileAspectRatio": {
+			"type": "string",
+			"default": "9/16"
+		},
+		"tileAlignment": {
+			"type": "string",
+			"default": "left"
+		},
+		"autoplay": {
+			"type": "boolean",
+			"default": true
+		},
+		"loopFeed": {
+			"type": "boolean",
+			"default": true
+		},
+		"showProgress": {
+			"type": "boolean",
+			"default": true
+		},
+		"showMuteToggle": {
+			"type": "boolean",
+			"default": true
+		},
+		"showBranding": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": [ "wide", "full" ]
+	},
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php"
+}
