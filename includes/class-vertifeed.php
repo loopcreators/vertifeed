@@ -2,15 +2,15 @@
 /**
  * Main plugin bootstrap.
  *
- * @package VidFeed
+ * @package VertiFeed
  */
 
 defined( 'ABSPATH' ) || exit;
 
 /**
- * VidFeed plugin class.
+ * VertiFeed plugin class.
  */
-class VidFeed {
+class VertiFeed {
 
 	/**
 	 * Initialize hooks.
@@ -26,7 +26,7 @@ class VidFeed {
 		$blocks = array( 'video-item', 'video-gallery' );
 
 		foreach ( $blocks as $block ) {
-			$block_path = VIDFEED_PATH . 'build/' . $block;
+			$block_path = VERTIFEED_PATH . 'build/' . $block;
 
 			if ( file_exists( $block_path . '/block.json' ) ) {
 				register_block_type( $block_path );

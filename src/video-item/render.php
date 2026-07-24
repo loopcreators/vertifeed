@@ -1,8 +1,8 @@
 <?php
 /**
- * VidFeed Video block render callback.
+ * VertiFeed Video block render callback.
  *
- * @package VidFeed
+ * @package VertiFeed
  *
  * @var array    $attributes Block attributes.
  * @var string   $content    Block inner content.
@@ -11,48 +11,48 @@
 
 defined( 'ABSPATH' ) || exit;
 
-$vidfeed_video_id  = isset( $attributes['videoId'] ) ? (int) $attributes['videoId'] : 0;
-$vidfeed_title     = isset( $attributes['title'] ) ? $attributes['title'] : '';
-$vidfeed_caption   = isset( $attributes['caption'] ) ? $attributes['caption'] : '';
-$vidfeed_poster_id = isset( $attributes['posterId'] ) ? (int) $attributes['posterId'] : 0;
+$vertifeed_video_id  = isset( $attributes['videoId'] ) ? (int) $attributes['videoId'] : 0;
+$vertifeed_title     = isset( $attributes['title'] ) ? $attributes['title'] : '';
+$vertifeed_caption   = isset( $attributes['caption'] ) ? $attributes['caption'] : '';
+$vertifeed_poster_id = isset( $attributes['posterId'] ) ? (int) $attributes['posterId'] : 0;
 
-if ( ! $vidfeed_video_id || ! wp_attachment_is( 'video', $vidfeed_video_id ) ) {
+if ( ! $vertifeed_video_id || ! wp_attachment_is( 'video', $vertifeed_video_id ) ) {
 	return;
 }
 
-$vidfeed_video_url = wp_get_attachment_url( $vidfeed_video_id );
+$vertifeed_video_url = wp_get_attachment_url( $vertifeed_video_id );
 
-if ( ! $vidfeed_video_url ) {
+if ( ! $vertifeed_video_url ) {
 	return;
 }
 
-$vidfeed_poster_url = '';
+$vertifeed_poster_url = '';
 
-if ( $vidfeed_poster_id ) {
-	$vidfeed_poster_url = wp_get_attachment_image_url( $vidfeed_poster_id, 'large' );
+if ( $vertifeed_poster_id ) {
+	$vertifeed_poster_url = wp_get_attachment_image_url( $vertifeed_poster_id, 'large' );
 }
 
-if ( ! $vidfeed_poster_url ) {
-	$vidfeed_poster_url = wp_get_attachment_image_url( $vidfeed_video_id, 'large' );
+if ( ! $vertifeed_poster_url ) {
+	$vertifeed_poster_url = wp_get_attachment_image_url( $vertifeed_video_id, 'large' );
 }
 
-$vidfeed_wrapper_attributes = get_block_wrapper_attributes(
+$vertifeed_wrapper_attributes = get_block_wrapper_attributes(
 	array(
-		'class' => 'vidfeed__item',
+		'class' => 'vertifeed__item',
 	)
 );
 ?>
-<div <?php echo $vidfeed_wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
-	<?php if ( $vidfeed_poster_url ) : ?>
+<div <?php echo $vertifeed_wrapper_attributes; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>>
+	<?php if ( $vertifeed_poster_url ) : ?>
 		<div
-			class="vidfeed__backdrop"
-			style="background-image: url( <?php echo esc_url( $vidfeed_poster_url ); ?> );"
+			class="vertifeed__backdrop"
+			style="background-image: url( <?php echo esc_url( $vertifeed_poster_url ); ?> );"
 			aria-hidden="true"
 		></div>
 	<?php else : ?>
 		<video
-			class="vidfeed__backdrop vidfeed__backdrop--video"
-			src="<?php echo esc_url( $vidfeed_video_url ); ?>#t=0.1"
+			class="vertifeed__backdrop vertifeed__backdrop--video"
+			src="<?php echo esc_url( $vertifeed_video_url ); ?>#t=0.1"
 			muted
 			playsinline
 			preload="metadata"
@@ -61,10 +61,10 @@ $vidfeed_wrapper_attributes = get_block_wrapper_attributes(
 		></video>
 	<?php endif; ?>
 	<video
-		class="vidfeed__video"
-		src="<?php echo esc_url( $vidfeed_video_url ); ?>"
-		<?php if ( $vidfeed_poster_url ) : ?>
-			poster="<?php echo esc_url( $vidfeed_poster_url ); ?>"
+		class="vertifeed__video"
+		src="<?php echo esc_url( $vertifeed_video_url ); ?>"
+		<?php if ( $vertifeed_poster_url ) : ?>
+			poster="<?php echo esc_url( $vertifeed_poster_url ); ?>"
 		<?php endif; ?>
 		playsinline
 		muted
@@ -72,15 +72,15 @@ $vidfeed_wrapper_attributes = get_block_wrapper_attributes(
 		data-wp-on--click="actions.togglePlay"
 	></video>
 
-	<div class="vidfeed__scrim" aria-hidden="true"></div>
+	<div class="vertifeed__scrim" aria-hidden="true"></div>
 
-	<?php if ( $vidfeed_title || $vidfeed_caption ) : ?>
-	<div class="vidfeed__meta">
-		<?php if ( $vidfeed_title ) : ?>
-			<h3 class="vidfeed__title"><?php echo esc_html( $vidfeed_title ); ?></h3>
+	<?php if ( $vertifeed_title || $vertifeed_caption ) : ?>
+	<div class="vertifeed__meta">
+		<?php if ( $vertifeed_title ) : ?>
+			<h3 class="vertifeed__title"><?php echo esc_html( $vertifeed_title ); ?></h3>
 		<?php endif; ?>
-		<?php if ( $vidfeed_caption ) : ?>
-			<p class="vidfeed__desc"><?php echo esc_html( $vidfeed_caption ); ?></p>
+		<?php if ( $vertifeed_caption ) : ?>
+			<p class="vertifeed__desc"><?php echo esc_html( $vertifeed_caption ); ?></p>
 		<?php endif; ?>
 	</div>
 	<?php endif; ?>

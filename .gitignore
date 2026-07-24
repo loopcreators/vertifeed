@@ -3,4 +3,5 @@ build/
 .DS_Store
 *.log
 .wp-env.override.json
-vidfeed.zip
+vertifeed.zip
+.venv-assets/

@@ -1,41 +1,41 @@
-.vidfeed__feed--editor {
+.vertifeed__feed--editor {
 	--vf-effective-columns: var(--vf-columns, 3);
 
 	// Neutralize the frontend flex on the outer gallery in the editor; the editor
 	// inserts extra wrapper elements that otherwise collapse to a tiny flex item.
-	.vidfeed__gallery--editor {
+	.vertifeed__gallery--editor {
 		display: block;
 		width: 100%;
 	}
 
-	.vidfeed__gallery--editor .block-editor-inner-blocks,
-	.vidfeed__gallery--editor .block-editor-block-list__layout {
+	.vertifeed__gallery--editor .block-editor-inner-blocks,
+	.vertifeed__gallery--editor .block-editor-block-list__layout {
 		width: 100%;
 	}
 
 	// The real items container becomes the flex grid.
-	.vidfeed__gallery--editor .block-editor-block-list__layout {
+	.vertifeed__gallery--editor .block-editor-block-list__layout {
 		display: flex;
 		flex-wrap: wrap;
 		gap: var(--vf-gap, 8px);
 	}
 
-	.vidfeed__gallery--editor.vidfeed__gallery--align-left
+	.vertifeed__gallery--editor.vertifeed__gallery--align-left
 		.block-editor-block-list__layout {
 		justify-content: flex-start;
 	}
 
-	.vidfeed__gallery--editor.vidfeed__gallery--align-center
+	.vertifeed__gallery--editor.vertifeed__gallery--align-center
 		.block-editor-block-list__layout {
 		justify-content: center;
 	}
 
-	.vidfeed__gallery--editor.vidfeed__gallery--align-right
+	.vertifeed__gallery--editor.vertifeed__gallery--align-right
 		.block-editor-block-list__layout {
 		justify-content: flex-end;
 	}
 
-	.vidfeed__gallery--editor .wp-block-vidfeed-video {
+	.vertifeed__gallery--editor .wp-block-vertifeed-video {
 		flex: 0 0
 			calc(
 				(100% - (var(--vf-effective-columns) - 1) * var(--vf-gap, 8px)) /
@@ -50,12 +50,12 @@
 	}
 
 	// Keep the "add reel" appender from collapsing the row.
-	.vidfeed__gallery--editor .block-list-appender {
+	.vertifeed__gallery--editor .block-list-appender {
 		flex: 0 0 auto;
 	}
 }
 
-.vidfeed__add-videos-help {
+.vertifeed__add-videos-help {
 	margin-top: 0;
 	color: #757575;
 	font-size: 12px;

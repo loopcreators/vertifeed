@@ -1,5 +1,5 @@
 /**
- * VidFeed Gallery block registration.
+ * VertiFeed Gallery block registration.
  */
 import { registerBlockType } from '@wordpress/blocks';
 import { InnerBlocks } from '@wordpress/block-editor';

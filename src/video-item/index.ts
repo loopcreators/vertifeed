@@ -1,5 +1,5 @@
 /**
- * VidFeed Video block registration.
+ * VertiFeed Video block registration.
  */
 import { registerBlockType } from '@wordpress/blocks';
 import './style.scss';

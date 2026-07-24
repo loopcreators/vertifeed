@@ -1,5 +1,5 @@
 {
-	"name": "vidfeed",
+	"name": "vertifeed",
 	"version": "1.0.1",
 	"description": "WordPress Gutenberg plugin for vertical swipe video playback",
 	"author": "Loop Creators",
@@ -7,7 +7,7 @@
 	"files": [
 		"build",
 		"includes",
-		"vidfeed.php",
+		"vertifeed.php",
 		"readme.txt",
 		"license.txt"
 	],

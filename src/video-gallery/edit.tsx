@@ -1,5 +1,5 @@
 /**
- * VidFeed Gallery block editor component.
+ * VertiFeed Gallery block editor component.
  */
 import { __ } from '@wordpress/i18n';
 import {
@@ -25,19 +25,19 @@ import { useDispatch, useSelect } from '@wordpress/data';
 import type { BlockEditProps, Block } from '@wordpress/blocks';
 import type { GalleryAttributes } from '../types';
 
-const ALLOWED_BLOCKS = [ 'vidfeed/video' ];
-const TEMPLATE: [ string ][] = [ [ 'vidfeed/video' ] ];
+const ALLOWED_BLOCKS = [ 'vertifeed/video' ];
+const TEMPLATE: [ string ][] = [ [ 'vertifeed/video' ] ];
 
 const ASPECT_OPTIONS = [
-	{ label: __( '9:16 (vertical)', 'vidfeed' ), value: '9/16' },
-	{ label: __( '1:1 (square)', 'vidfeed' ), value: '1/1' },
-	{ label: __( '4:5 (portrait)', 'vidfeed' ), value: '4/5' },
+	{ label: __( '9:16 (vertical)', 'vertifeed' ), value: '9/16' },
+	{ label: __( '1:1 (square)', 'vertifeed' ), value: '1/1' },
+	{ label: __( '4:5 (portrait)', 'vertifeed' ), value: '4/5' },
 ];
 
 const ALIGN_OPTIONS = [
-	{ label: __( 'Left', 'vidfeed' ), value: 'left' },
-	{ label: __( 'Center', 'vidfeed' ), value: 'center' },
-	{ label: __( 'Right', 'vidfeed' ), value: 'right' },
+	{ label: __( 'Left', 'vertifeed' ), value: 'left' },
+	{ label: __( 'Center', 'vertifeed' ), value: 'center' },
+	{ label: __( 'Right', 'vertifeed' ), value: 'right' },
 ];
 
 interface MediaUploadRenderArgs {
@@ -68,7 +68,7 @@ function isVideoMedia( media: SelectedMedia ): boolean {
 
 function createVideoItemBlocks( mediaItems: SelectedMedia[] ) {
 	return mediaItems.filter( isVideoMedia ).map( ( media ) =>
-		createBlock( 'vidfeed/video', {
+		createBlock( 'vertifeed/video', {
 			videoId: media.id,
 			posterId: media.id,
 		} )
@@ -140,10 +140,10 @@ export default function Edit( {
 		insertBlocks( newBlocks, undefined, clientId, false );
 	};
 
-	const alignClass = `vidfeed__gallery--align-${ tileAlignment || 'left' }`;
+	const alignClass = `vertifeed__gallery--align-${ tileAlignment || 'left' }`;
 
 	const blockProps = useBlockProps({
-		className: 'vidfeed__feed vidfeed__feed--editor',
+		className: 'vertifeed__feed vertifeed__feed--editor',
 		style: {
 			'--vf-columns': columns,
 			'--vf-gap': `${ gap }px`,
@@ -158,7 +158,7 @@ export default function Edit( {
 		variant?: 'primary' | 'secondary';
 	} ) => (
 		<Button variant={ variant } onClick={ open }>
-			{ __( 'Add videos', 'vidfeed' ) }
+			{ __( 'Add videos', 'vertifeed' ) }
 		</Button>
 	);
 
@@ -173,7 +173,7 @@ export default function Edit( {
 						render={ ( { open }: MediaUploadRenderArgs ) => (
 							<ToolbarButton
 								icon={ galleryIcon }
-								label={ __( 'Add videos', 'vidfeed' ) }
+								label={ __( 'Add videos', 'vertifeed' ) }
 								onClick={ open }
 							/>
 						) }
@@ -182,11 +182,11 @@ export default function Edit( {
 			</BlockControls>
 
 			<InspectorControls>
-				<PanelBody title={ __( 'Videos', 'vidfeed' ) }>
-					<p className="vidfeed__add-videos-help">
+				<PanelBody title={ __( 'Videos', 'vertifeed' ) }>
+					<p className="vertifeed__add-videos-help">
 						{ __(
 							'Select multiple videos from the Media Library to add them as a gallery in one go.',
-							'vidfeed'
+							'vertifeed'
 						) }
 					</p>
 					<MediaUploadCheck>
@@ -202,9 +202,9 @@ export default function Edit( {
 						/>
 					</MediaUploadCheck>
 				</PanelBody>
-				<PanelBody title={ __( 'Gallery', 'vidfeed' ) }>
+				<PanelBody title={ __( 'Gallery', 'vertifeed' ) }>
 					<RangeControl
-						label={ __( 'Columns', 'vidfeed' ) }
+						label={ __( 'Columns', 'vertifeed' ) }
 						value={ columns }
 						onChange={ ( value?: number ) =>
 							setAttributes( { columns: value } )
@@ -213,7 +213,7 @@ export default function Edit( {
 						max={ 6 }
 					/>
 					<RangeControl
-						label={ __( 'Gap (px)', 'vidfeed' ) }
+						label={ __( 'Gap (px)', 'vertifeed' ) }
 						value={ gap }
 						onChange={ ( value?: number ) =>
 							setAttributes( { gap: value } )
@@ -222,7 +222,7 @@ export default function Edit( {
 						max={ 48 }
 					/>
 					<SelectControl
-						label={ __( 'Tile aspect ratio', 'vidfeed' ) }
+						label={ __( 'Tile aspect ratio', 'vertifeed' ) }
 						value={ tileAspectRatio }
 						options={ ASPECT_OPTIONS }
 						onChange={ ( value: string ) =>
@@ -230,7 +230,7 @@ export default function Edit( {
 						}
 					/>
 					<SelectControl
-						label={ __( 'Gallery alignment', 'vidfeed' ) }
+						label={ __( 'Gallery alignment', 'vertifeed' ) }
 						value={ tileAlignment || 'left' }
 						options={ ALIGN_OPTIONS }
 						onChange={ ( value: string ) =>
@@ -238,59 +238,59 @@ export default function Edit( {
 						}
 						help={ __(
 							'Align tiles when a row is not full.',
-							'vidfeed'
+							'vertifeed'
 						) }
 					/>
 				</PanelBody>
 				<PanelBody
-					title={ __( 'Player settings', 'vidfeed' ) }
+					title={ __( 'Player settings', 'vertifeed' ) }
 					initialOpen={ false }
 				>
 					<ToggleControl
-						label={ __( 'Autoplay in overlay', 'vidfeed' ) }
+						label={ __( 'Autoplay in overlay', 'vertifeed' ) }
 						checked={ autoplay }
 						onChange={ ( value: boolean ) =>
 							setAttributes( { autoplay: value } )
 						}
 						help={ __(
 							'Automatically play the active reel when opened (muted).',
-							'vidfeed'
+							'vertifeed'
 						) }
 					/>
 					<ToggleControl
-						label={ __( 'Loop feed', 'vidfeed' ) }
+						label={ __( 'Loop feed', 'vertifeed' ) }
 						checked={ loopFeed }
 						onChange={ ( value: boolean ) =>
 							setAttributes( { loopFeed: value } )
 						}
 						help={ __(
 							'Return to the first reel after the last one ends.',
-							'vidfeed'
+							'vertifeed'
 						) }
 					/>
 					<ToggleControl
-						label={ __( 'Show progress bar', 'vidfeed' ) }
+						label={ __( 'Show progress bar', 'vertifeed' ) }
 						checked={ showProgress }
 						onChange={ ( value: boolean ) =>
 							setAttributes( { showProgress: value } )
 						}
 					/>
 					<ToggleControl
-						label={ __( 'Show mute toggle', 'vidfeed' ) }
+						label={ __( 'Show mute toggle', 'vertifeed' ) }
 						checked={ showMuteToggle }
 						onChange={ ( value: boolean ) =>
 							setAttributes( { showMuteToggle: value } )
 						}
 					/>
 					<ToggleControl
-						label={ __( 'Show branding', 'vidfeed' ) }
+						label={ __( 'Show branding', 'vertifeed' ) }
 						checked={ showBranding }
 						onChange={ ( value: boolean ) =>
 							setAttributes( { showBranding: value } )
 						}
 						help={ __(
-							'Opt in to show a "Made With VidFeed" label in the player.',
-							'vidfeed'
+							'Opt in to show a "Made With VertiFeed" label in the player.',
+							'vertifeed'
 						) }
 					/>
 				</PanelBody>
@@ -298,7 +298,7 @@ export default function Edit( {
 
 			<div { ...blockProps }>
 				<div
-					className={ `vidfeed__gallery vidfeed__gallery--editor ${ alignClass }` }
+					className={ `vertifeed__gallery vertifeed__gallery--editor ${ alignClass }` }
 				>
 					<InnerBlocks
 						allowedBlocks={ ALLOWED_BLOCKS }

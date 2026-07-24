@@ -1,14 +1,14 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"name": "vidfeed/gallery",
+	"name": "vertifeed/gallery",
 	"version": "1.0.1",
-	"title": "VidFeed Gallery",
+	"title": "VertiFeed Gallery",
 	"category": "media",
 	"icon": "images-alt2",
 	"description": "Display videos as a gallery grid; open a fullscreen vertical swipe player on click.",
-	"keywords": [ "video", "vidfeed", "gallery", "swipe", "vertical", "feed" ],
-	"textdomain": "vidfeed",
+	"keywords": [ "video", "vertifeed", "gallery", "swipe", "vertical", "feed" ],
+	"textdomain": "vertifeed",
 	"attributes": {
 		"columns": {
 			"type": "number",

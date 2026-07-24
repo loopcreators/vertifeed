@@ -1,4 +1,4 @@
-=== VidFeed ===
+=== VertiFeed ===
 Contributors: loopcreators
 Tags: video, gallery, gutenberg, blocks, media
 Requires at least: 6.5
@@ -12,11 +12,11 @@ Show Media Library videos as a gallery grid; click a thumbnail to open a fullscr
 
 == Description ==
 
-VidFeed adds two Gutenberg blocks for creating vertical swipe video galleries on your WordPress site.
+VertiFeed adds two Gutenberg blocks for creating vertical swipe video galleries on your WordPress site.
 
-**VidFeed Gallery** — A container block that displays videos as a responsive gallery grid of poster thumbnails. Clicking a thumbnail opens a fullscreen overlay with a vertical swipe video player.
+**VertiFeed Gallery** — A container block that displays videos as a responsive gallery grid of poster thumbnails. Clicking a thumbnail opens a fullscreen overlay with a vertical swipe video player.
 
-**VidFeed Video** — A child block for adding individual videos from the Media Library.
+**VertiFeed Video** — A child block for adding individual videos from the Media Library.
 
 = Features =
 
@@ -31,10 +31,10 @@ VidFeed adds two Gutenberg blocks for creating vertical swipe video galleries on
 
 == Installation ==
 
-1. Upload the `vidfeed` folder to `/wp-content/plugins/`
+1. Upload the `vertifeed` folder to `/wp-content/plugins/`
 2. Activate the plugin through the 'Plugins' menu in WordPress
-3. Insert a **VidFeed Gallery** block in the block editor
-4. Add **VidFeed Video** blocks inside and select videos from the Media Library
+3. Insert a **VertiFeed Gallery** block in the block editor
+4. Add **VertiFeed Video** blocks inside and select videos from the Media Library
 
 == Frequently Asked Questions ==
 
@@ -44,12 +44,12 @@ Any format supported by the WordPress Media Library and the visitor's browser (t
 
 = Can I use YouTube or Vimeo videos? =
 
-Not in v1. VidFeed currently supports self-hosted Media Library videos only.
+Not in v1. VertiFeed currently supports self-hosted Media Library videos only.
 
 == Development ==
 
 Source code and build tools are in the public repository:
-https://github.com/loopcreators/vidfeed
+https://github.com/loopcreators/vertifeed
 
 This plugin is built with `@wordpress/scripts`. To regenerate the compiled files in `build/`:
 
@@ -58,13 +58,13 @@ This plugin is built with `@wordpress/scripts`. To regenerate the compiled files
 
 == Screenshots ==
 
-1. VidFeed Gallery grid of vertical video thumbnails in the block editor.
+1. VertiFeed Gallery grid of vertical video thumbnails in the block editor.
 2. Fullscreen video player with mute toggle and swipe navigation.
 
 == Changelog ==
 
 = 1.0.1 =
-* Renamed plugin to VidFeed for WordPress.org naming compliance.
+* Renamed plugin to VertiFeed for WordPress.org naming compliance.
 * Documented public source repository and build steps in the readme.
 * Updated block names, text domain, and branding.
 

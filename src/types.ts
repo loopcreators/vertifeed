@@ -1,5 +1,5 @@
 /**
- * Shared TypeScript types for VidFeed blocks.
+ * Shared TypeScript types for VertiFeed blocks.
  */
 
 /** Minimal shape of a WordPress media (attachment) REST object. */

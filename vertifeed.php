@@ -1,7 +1,7 @@
 <?php
 /**
- * Plugin Name:       VidFeed
- * Plugin URI:        https://github.com/loopcreators/vidfeed
+ * Plugin Name:       VertiFeed
+ * Plugin URI:        https://github.com/loopcreators/vertifeed
  * Description:       Play Media Library videos in a vertical swipe gallery via Gutenberg blocks.
  * Version:           1.0.1
  * Requires at least: 6.5
@@ -10,17 +10,17 @@
  * Author:            Loop Creators
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain:       vidfeed
+ * Text Domain:       vertifeed
  *
- * @package VidFeed
+ * @package VertiFeed
  */
 
 defined( 'ABSPATH' ) || exit;
 
-define( 'VIDFEED_VERSION', '1.0.1' );
-define( 'VIDFEED_PATH', plugin_dir_path( __FILE__ ) );
-define( 'VIDFEED_URL', plugin_dir_url( __FILE__ ) );
+define( 'VERTIFEED_VERSION', '1.0.1' );
+define( 'VERTIFEED_PATH', plugin_dir_path( __FILE__ ) );
+define( 'VERTIFEED_URL', plugin_dir_url( __FILE__ ) );
 
-require_once VIDFEED_PATH . 'includes/class-vidfeed.php';
+require_once VERTIFEED_PATH . 'includes/class-vertifeed.php';
 
-VidFeed::init();
+VertiFeed::init();

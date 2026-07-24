@@ -1,10 +1,10 @@
 /**
- * VidFeed Gallery frontend interactivity.
+ * VertiFeed Gallery frontend interactivity.
  */
 import { store, getContext, getElement } from '@wordpress/interactivity';
 
 const SWIPE_THRESHOLD = 50;
-const SCROLL_LOCK_CLASS = 'vidfeed--scroll-locked';
+const SCROLL_LOCK_CLASS = 'vertifeed--scroll-locked';
 // Short debounce so a single input can't double-fire; deliberate repeats still pass.
 const NAV_LOCK_MS = 140;
 
@@ -17,7 +17,7 @@ const MIN_WHEEL_DELTA = 6;
 
 type TimerHandle = ReturnType< typeof setTimeout > | null;
 
-interface VidFeedContext {
+interface VertiFeedContext {
 	activeIndex: number;
 	totalItems: number;
 	isOpen: boolean;
@@ -117,7 +117,7 @@ function resetNavigationState( feedRoot: HTMLElement | null ): void {
 }
 
 function getFeedRoot( element: Element | null ): HTMLElement | null {
-	return ( element?.closest?.( '.vidfeed__feed' ) as HTMLElement ) ?? null;
+	return ( element?.closest?.( '.vertifeed__feed' ) as HTMLElement ) ?? null;
 }
 
 /**
@@ -126,7 +126,7 @@ function getFeedRoot( element: Element | null ): HTMLElement | null {
  */
 function snapTrack( feedRoot: HTMLElement | null ): void {
 	const track = feedRoot?.querySelector< HTMLElement >(
-		'.vidfeed__track'
+		'.vertifeed__track'
 	);
 	if ( ! track ) {
 		return;
@@ -146,7 +146,7 @@ function getOverlayElements( feedRoot: HTMLElement | null ): OverlayElements {
 	}
 
 	const overlay = feedRoot.querySelector< HTMLElement >(
-		'.vidfeed__overlay'
+		'.vertifeed__overlay'
 	);
 
 	return {
@@ -154,14 +154,14 @@ function getOverlayElements( feedRoot: HTMLElement | null ): OverlayElements {
 		items: overlay
 			? Array.from(
 					overlay.querySelectorAll< HTMLElement >(
-						'.vidfeed__item'
+						'.vertifeed__item'
 					)
 			  )
 			: [],
 		videos: overlay
 			? Array.from(
 					overlay.querySelectorAll< HTMLVideoElement >(
-						'.vidfeed__video'
+						'.vertifeed__video'
 					)
 			  )
 			: [],
@@ -176,29 +176,29 @@ function unlockBodyScroll(): void {
 	document.documentElement.classList.remove( SCROLL_LOCK_CLASS );
 }
 
-const { actions } = store( 'vidfeed', {
+const { actions } = store( 'vertifeed', {
 	state: {
 		get trackTransform(): string {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			// Translate in viewport units so each step always equals one full
 			// reel height, regardless of how tall the (overflowing) track is.
 			return `translateY(calc(${ ctx.activeIndex } * -100dvh))`;
 		},
 		get muteLabel(): string {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			return ctx.isMuted
 				? ctx.unmuteLabel || 'Unmute'
 				: ctx.muteLabel || 'Mute';
 		},
 		get progress(): string {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			return ctx.progress || '0%';
 		},
 	},
 
 	actions: {
 		openAt( event: MouseEvent ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			const currentTarget = event.currentTarget as HTMLElement;
 			const index = parseInt(
 				currentTarget.getAttribute( 'data-index' ) ?? '',
@@ -227,7 +227,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		close( event?: Event ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			const { ref } = getElement();
 			const feedRoot = getFeedRoot( ref );
 			const { videos } = getOverlayElements( feedRoot );
@@ -255,7 +255,7 @@ const { actions } = store( 'vidfeed', {
 
 		toggleMute( event: Event ): void {
 			event.stopPropagation();
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			const { ref } = getElement();
 			const feedRoot = getFeedRoot( ref );
 			const { videos } = getOverlayElements( feedRoot );
@@ -281,7 +281,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		onWheel( event: WheelEvent ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			if ( ! ctx.isOpen ) {
 				return;
 			}
@@ -324,7 +324,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		onKeydown( event: KeyboardEvent ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 
 			if ( event.key === 'Escape' && ctx.isOpen ) {
 				event.preventDefault();
@@ -348,7 +348,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		onTouchStart( event: TouchEvent ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			if ( ! ctx.isOpen ) {
 				return;
 			}
@@ -358,7 +358,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		onTouchMove( event: TouchEvent ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			if ( ! ctx.isOpen || ! ctx.isDragging ) {
 				return;
 			}
@@ -366,7 +366,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		onTouchEnd( event: TouchEvent ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			if ( ! ctx.isOpen || ! ctx.isDragging ) {
 				return;
 			}
@@ -386,7 +386,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		next(): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			const { ref } = getElement();
 			const feedRoot = getFeedRoot( ref );
 			const state = getNavState( feedRoot );
@@ -419,7 +419,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		prev(): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			const { ref } = getElement();
 			const feedRoot = getFeedRoot( ref );
 			const state = getNavState( feedRoot );
@@ -452,7 +452,7 @@ const { actions } = store( 'vidfeed', {
 		},
 
 		setActive( index: number, snap = false ): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			const { ref } = getElement();
 			const feedRoot = getFeedRoot( ref );
 			const { items, videos } = getOverlayElements( feedRoot );
@@ -510,7 +510,7 @@ const { actions } = store( 'vidfeed', {
 
 	callbacks: {
 		onInit(): void {
-			const ctx = getContext< VidFeedContext >();
+			const ctx = getContext< VertiFeedContext >();
 			const { ref } = getElement();
 			const { items, videos } = getOverlayElements(
 				ref as HTMLElement | null

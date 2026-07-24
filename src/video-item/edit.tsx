@@ -1,5 +1,5 @@
 /**
- * VidFeed Video block editor component.
+ * VertiFeed Video block editor component.
  */
 import { __, sprintf } from '@wordpress/i18n';
 import {
@@ -87,7 +87,7 @@ export default function Edit( {
 	);
 
 	const blockProps = useBlockProps( {
-		className: 'vidfeed__item vidfeed__item--editor',
+		className: 'vertifeed__item vertifeed__item--editor',
 	} );
 
 	const onSelectVideo = ( media: SelectedMedia | SelectedMedia[] ) => {
@@ -111,7 +111,7 @@ export default function Edit( {
 		replaceBlocks(
 			clientId,
 			selected.map( ( item ) =>
-				createBlock( 'vidfeed/video', {
+				createBlock( 'vertifeed/video', {
 					videoId: item.id,
 					posterId: item.id,
 					...( selected[ 0 ].id === item.id
@@ -174,7 +174,7 @@ export default function Edit( {
 			);
 		}
 		return (
-			<span className="vidfeed__selected-icon">{ '\u25B6' }</span>
+			<span className="vertifeed__selected-icon">{ '\u25B6' }</span>
 		);
 	};
 
@@ -192,8 +192,8 @@ export default function Edit( {
 								icon={ videoIcon }
 								label={
 									videoId
-										? __( 'Replace video', 'vidfeed' )
-										: __( 'Select videos', 'vidfeed' )
+										? __( 'Replace video', 'vertifeed' )
+										: __( 'Select videos', 'vertifeed' )
 								}
 								onClick={ open }
 							/>
@@ -203,21 +203,21 @@ export default function Edit( {
 			</BlockControls>
 
 			<InspectorControls>
-				<PanelBody title={ __( 'Video', 'vidfeed' ) }>
+				<PanelBody title={ __( 'Video', 'vertifeed' ) }>
 					{ videoId > 0 && (
-						<div className="vidfeed__selected">
-							<span className="vidfeed__selected-thumb">
+						<div className="vertifeed__selected">
+							<span className="vertifeed__selected-thumb">
 								{ renderThumb( posterImageUrl ) }
 							</span>
-							<span className="vidfeed__selected-info">
-								<span className="vidfeed__selected-name">
+							<span className="vertifeed__selected-info">
+								<span className="vertifeed__selected-name">
 									{ videoName ||
-										__( 'Selected video', 'vidfeed' ) }
+										__( 'Selected video', 'vertifeed' ) }
 								</span>
-								<span className="vidfeed__selected-meta">
+								<span className="vertifeed__selected-meta">
 									{ sprintf(
 										/* translators: %d: attachment ID */
-										__( 'ID: %d', 'vidfeed' ),
+										__( 'ID: %d', 'vertifeed' ),
 										videoId
 									) }
 								</span>
@@ -233,8 +233,8 @@ export default function Edit( {
 							render={ ( { open }: MediaUploadRenderArgs ) => (
 								<Button variant="secondary" onClick={ open }>
 									{ videoId
-										? __( 'Replace video', 'vidfeed' )
-										: __( 'Select videos', 'vidfeed' ) }
+										? __( 'Replace video', 'vertifeed' )
+										: __( 'Select videos', 'vertifeed' ) }
 								</Button>
 							) }
 						/>
@@ -246,36 +246,36 @@ export default function Edit( {
 							onClick={ removeVideo }
 							style={ { marginTop: '8px' } }
 						>
-							{ __( 'Remove video', 'vidfeed' ) }
+							{ __( 'Remove video', 'vertifeed' ) }
 						</Button>
 					) }
 				</PanelBody>
 				{ videoId > 0 && (
 					<PanelBody
-						title={ __( 'Poster / thumbnail', 'vidfeed' ) }
+						title={ __( 'Poster / thumbnail', 'vertifeed' ) }
 						initialOpen={ false }
 					>
-						<div className="vidfeed__selected">
-							<span className="vidfeed__selected-thumb">
+						<div className="vertifeed__selected">
+							<span className="vertifeed__selected-thumb">
 								{ renderThumb( posterThumbUrl ) }
 							</span>
-							<span className="vidfeed__selected-info">
-								<span className="vidfeed__selected-name">
+							<span className="vertifeed__selected-info">
+								<span className="vertifeed__selected-name">
 									{ posterIsImage && posterId !== videoId
 										? poster?.title?.rendered ||
-										  __( 'Poster image', 'vidfeed' )
-										: __( 'Video frame', 'vidfeed' ) }
+										  __( 'Poster image', 'vertifeed' )
+										: __( 'Video frame', 'vertifeed' ) }
 								</span>
-								<span className="vidfeed__selected-meta">
+								<span className="vertifeed__selected-meta">
 									{ posterIsImage && posterId !== videoId
 										? sprintf(
 												/* translators: %d: attachment ID */
-												__( 'ID: %d', 'vidfeed' ),
+												__( 'ID: %d', 'vertifeed' ),
 												posterId
 										  )
 										: __(
 												'Using video frame',
-												'vidfeed'
+												'vertifeed'
 										  ) }
 								</span>
 							</span>
@@ -290,11 +290,11 @@ export default function Edit( {
 										{ posterId > 0 && posterId !== videoId
 											? __(
 													'Replace poster image',
-													'vidfeed'
+													'vertifeed'
 											  )
 											: __(
 													'Select poster image',
-													'vidfeed'
+													'vertifeed'
 											  ) }
 									</Button>
 								) }
@@ -309,38 +309,38 @@ export default function Edit( {
 								}
 								style={ { marginTop: '8px' } }
 							>
-								{ __( 'Remove poster image', 'vidfeed' ) }
+								{ __( 'Remove poster image', 'vertifeed' ) }
 							</Button>
 						) }
-						<p className="vidfeed__poster-help">
+						<p className="vertifeed__poster-help">
 							{ __(
 								'This image is used as the gallery thumbnail and the video poster.',
-													'vidfeed'
+													'vertifeed'
 							) }
 						</p>
 					</PanelBody>
 				) }
-				<PanelBody title={ __( 'Content', 'vidfeed' ) }>
+				<PanelBody title={ __( 'Content', 'vertifeed' ) }>
 					<TextControl
-						label={ __( 'Title', 'vidfeed' ) }
+						label={ __( 'Title', 'vertifeed' ) }
 						value={ title }
 						onChange={ ( value: string ) =>
 							setAttributes( { title: value } )
 						}
 						help={ __(
 							'Bold heading shown over the reel.',
-													'vidfeed'
+													'vertifeed'
 						) }
 					/>
 					<TextareaControl
-						label={ __( 'Description', 'vidfeed' ) }
+						label={ __( 'Description', 'vertifeed' ) }
 						value={ caption }
 						onChange={ ( value: string ) =>
 							setAttributes( { caption: value } )
 						}
 						help={ __(
 							'Short text shown under the title.',
-													'vidfeed'
+													'vertifeed'
 						) }
 					/>
 				</PanelBody>
@@ -350,10 +350,10 @@ export default function Edit( {
 				{ ! videoId ? (
 					<Placeholder
 						icon={ videoIcon }
-						label={ __( 'VidFeed Video', 'vidfeed' ) }
+						label={ __( 'VertiFeed Video', 'vertifeed' ) }
 						instructions={ __(
 							'Select one or more videos from the Media Library.',
-							'vidfeed'
+							'vertifeed'
 						) }
 					>
 						<MediaUploadCheck>
@@ -363,7 +363,7 @@ export default function Edit( {
 								multiple
 								render={ ( { open }: MediaUploadRenderArgs ) => (
 									<Button variant="primary" onClick={ open }>
-										{ __( 'Select videos', 'vidfeed' ) }
+										{ __( 'Select videos', 'vertifeed' ) }
 									</Button>
 								) }
 							/>
@@ -373,16 +373,16 @@ export default function Edit( {
 					<>
 						{ posterImageUrl ? (
 							<img
-								className="vidfeed__poster-preview"
+								className="vertifeed__poster-preview"
 								src={ posterImageUrl }
 								alt={
 									video?.title?.rendered ||
-									__( 'Video preview', 'vidfeed' )
+									__( 'Video preview', 'vertifeed' )
 								}
 							/>
 						) : firstFrameSrc ? (
 							<video
-								className="vidfeed__poster-preview"
+								className="vertifeed__poster-preview"
 								src={ firstFrameSrc }
 								muted
 								playsInline
@@ -391,20 +391,20 @@ export default function Edit( {
 								aria-hidden="true"
 							/>
 						) : (
-							<div className="vidfeed__poster-preview vidfeed__poster-preview--empty">
+							<div className="vertifeed__poster-preview vertifeed__poster-preview--empty">
 								{ video?.title?.rendered ||
-									__( 'Video selected', 'vidfeed' ) }
+									__( 'Video selected', 'vertifeed' ) }
 							</div>
 						) }
 						{ ( title || caption ) && (
-							<div className="vidfeed__meta-preview">
+							<div className="vertifeed__meta-preview">
 								{ title && (
-									<span className="vidfeed__title-preview">
+									<span className="vertifeed__title-preview">
 										{ title }
 									</span>
 								) }
 								{ caption && (
-									<span className="vidfeed__desc-preview">
+									<span className="vertifeed__desc-preview">
 										{ caption }
 									</span>
 								) }
