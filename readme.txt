@@ -4,7 +4,7 @@ Tags: video, gallery, gutenberg, blocks, media
 Requires at least: 6.5
 Tested up to: 7.0
 Requires PHP: 7.4
-Stable tag: 1.0.1
+Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -62,11 +62,6 @@ This plugin is built with `@wordpress/scripts`. To regenerate the compiled files
 2. Fullscreen video player with mute toggle and swipe navigation.
 
 == Changelog ==
-
-= 1.0.1 =
-* Renamed plugin to VertiFeed for WordPress.org naming compliance.
-* Documented public source repository and build steps in the readme.
-* Updated block names, text domain, and branding.
 
 = 1.0.0 =
 * Initial release.
