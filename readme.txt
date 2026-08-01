@@ -59,7 +59,7 @@ This plugin is built with `@wordpress/scripts`. To regenerate the compiled files
 == Screenshots ==
 
 1. VertiFeed Gallery grid of vertical video thumbnails in the block editor.
-2. Fullscreen video player with mute toggle and swipe navigation.
+2. Fullscreen vertical swipe player opens over the gallery on thumbnail click.
 
 == Changelog ==
 
