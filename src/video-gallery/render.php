@@ -158,8 +158,15 @@ $vertifeed_wrapper_attributes = get_block_wrapper_attributes(
 
 			<?php if ( $vertifeed_show_branding ) : ?>
 				<div class="vertifeed__branding" aria-hidden="true">
-					<span class="vertifeed__branding-made"><?php esc_html_e( 'Made With', 'vertifeed' ); ?></span>
-					<span class="vertifeed__branding-name">VertiFeed</span>
+					<svg class="vertifeed__branding-mark" viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+						<rect x="3.5" y="4" width="2.5" height="16" rx="1.25" fill="currentColor" opacity="0.55"/>
+						<path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M8 4h7.5a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm2.4 5.2 4.2 2.4a.9.9 0 0 1 0 1.55l-4.2 2.4A.9.9 0 0 1 9.1 14.7V9.9A.9.9 0 0 1 10.4 9.2Z"/>
+						<rect x="18" y="4" width="3" height="16" rx="1.5" fill="currentColor"/>
+					</svg>
+					<span class="vertifeed__branding-text">
+						<span class="vertifeed__branding-made"><?php esc_html_e( 'Made with', 'vertifeed' ); ?></span>
+						<span class="vertifeed__branding-name">VertiFeed</span>
+					</span>
 				</div>
 			<?php endif; ?>
 

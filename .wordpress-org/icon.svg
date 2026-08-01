@@ -1,14 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="VertiFeed">
-  <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#5B8DEF"/>
-      <stop offset="100%" stop-color="#3B6FD4"/>
-    </linearGradient>
-  </defs>
-  <rect width="256" height="256" rx="56" fill="url(#bg)"/>
-  <!-- back card -->
-  <rect x="96" y="40" width="88" height="160" rx="18" fill="#FFFFFF" opacity="0.35"/>
-  <!-- front card -->
-  <rect x="72" y="52" width="96" height="168" rx="20" fill="#FFFFFF" opacity="0.92"/>
-  <path d="M110 118 L162 136 L110 154 Z" fill="#3B6FD4"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 104 104" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+    <g transform="matrix(1,0,0,1,-375,-2)">
+        <g id="vertifeed-icon-bg-w" transform="matrix(1,0,0,1,1,-1)">
+            <rect x="374" y="3" width="104" height="104" style="fill:none;"/>
+            <g transform="matrix(2.143963,0,0,2.143963,-473.630611,-47.910229)">
+                <g transform="matrix(-0.001691,-0.54726,0.21711,-0.000671,410.295255,260.221168)">
+                    <path d="M425.959,105.187L425.959,134.951C425.959,137.544 425.123,139.65 424.094,139.65L351.614,139.65C350.585,139.65 349.75,137.544 349.75,134.951L349.75,105.187C349.75,102.593 350.585,100.487 351.614,100.487L424.094,100.487C425.123,100.487 425.959,102.593 425.959,105.187Z" style="fill:rgb(18,76,212);"/>
+                </g>
+                <g transform="matrix(-0.001691,-0.54726,0.140507,-0.000434,385.800667,260.429665)">
+                    <path d="M425.959,105.187L425.959,134.951C425.959,137.544 425.418,139.65 424.752,139.65L350.957,139.65C350.291,139.65 349.75,137.544 349.75,134.951L349.75,105.187C349.75,102.593 350.291,100.487 350.957,100.487L424.752,100.487C425.418,100.487 425.959,102.593 425.959,105.187Z" style="fill:rgb(81,123,223);"/>
+                </g>
+                <g transform="matrix(-0.001691,-0.54726,0.584582,-0.001806,348.460405,260.514121)">
+                    <path d="M425.959,105.187L425.959,134.951C425.959,137.544 423.709,139.65 420.939,139.65L354.77,139.65C351.999,139.65 349.75,137.544 349.75,134.951L349.75,105.187C349.75,102.593 351.999,100.487 354.77,100.487L420.939,100.487C423.709,100.487 425.959,102.593 425.959,105.187Z" style="fill:rgb(35,84,203);"/>
+                </g>
+                <g transform="matrix(0.001746,-0.133263,-0.115832,-0.001518,444.56036,105.401866)">
+                    <path d="M425.948,196.101L462.983,270.171L388.913,270.171L425.948,196.101Z" style="fill:white;"/>
+                </g>
+            </g>
+        </g>
+    </g>
 </svg>
