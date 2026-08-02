@@ -63,6 +63,10 @@ This plugin is built with `@wordpress/scripts`. To regenerate the compiled files
 
 == Changelog ==
 
+= 1.0.1 =
+* Updated VertiFeed branding across plugin assets, block icons, and overlay mark.
+* Renamed plugin display name to VertiFeed - Vertical Media Gallery.
+
 = 1.0.0 =
 * Initial release.
 * Gallery grid of poster thumbnails with fullscreen overlay player.
